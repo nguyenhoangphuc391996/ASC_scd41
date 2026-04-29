@@ -729,6 +729,8 @@ int16_t scd4x_stop_periodic_measurement() {
     }
     sensirion_i2c_hal_sleep_usec(500 * 1000);
     _measurement_running = false;
+
+    itm_print("[SCD41] STOP measurement\r\n");
     return local_error;
 }
 
@@ -881,9 +883,9 @@ int16_t scd4x_set_automatic_self_calibration_enabled(uint16_t asc_enabled) {
     }
     sensirion_i2c_hal_sleep_usec(1 * 1000);
     if (asc_enabled == 1) {
-            itm_print("ASC has been ENABLED successfully\n");
+            itm_print("[SCD41] ASC has been ENABLED successfully\n");
         } else {
-            itm_print("ASC has been DISABLED successfully\n");
+            itm_print("[SCD41] ASC has been DISABLED successfully\n");
         }
     return local_error;
 }
@@ -996,6 +998,8 @@ int16_t scd4x_persist_settings() {
         return local_error;
     }
     sensirion_i2c_hal_sleep_usec(800 * 1000);
+
+    itm_print("[SCD41] ASC persisted\r\n");
     return local_error;
 }
 

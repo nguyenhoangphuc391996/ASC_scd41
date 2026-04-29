@@ -167,7 +167,6 @@ static int16_t Sensor_StopMeasurement(void)
   int16_t err = scd4x_stop_periodic_measurement();
   if (err == NO_ERROR)
   {
-    itm_print("[APP] STOP measurement\r\n");
   }
   return err;
 }
@@ -194,7 +193,6 @@ static int16_t Sensor_SetAscAndPersist(uint16_t asc_enabled)
   err = scd4x_persist_settings();
   if (err == NO_ERROR)
   {
-    itm_print("[APP] ASC persisted\r\n");
   }
   return err;
 }
